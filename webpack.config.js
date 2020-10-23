@@ -4,8 +4,11 @@ const webpack = require('webpack')
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     // devtool: 'none',
+    optimization: {
+        usedExports: true,
+    },
     devServer: {
         contentBase: './dist',
         open: true,
@@ -14,8 +17,7 @@ module.exports = {
     },
     // entry 入口文件， 可以为 字符串 数组 和 对象， 字符串表示是 单入口文件， 数组表示是 多入口文件，但不能指定对应的chunk名， 对象表示是 多入口文件，可以指定对应的chunk 名。
     entry: {
-        main: './src/index.js',
-        sub: './src/sub.js'
+        main: './src/index.js'
     },
     // output 输出文件， 必须为一个对象
     output: {
